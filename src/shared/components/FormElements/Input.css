@@ -1,43 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+.form-control {
+  margin: 1rem 0;
+}
 
-import './Button.css';
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+}
 
-const Button = props => {
-  if (props.href) {
-    return (
-      <a
-        className={`button button--${props.size || 'default'} ${props.inverse &&
-          'button--inverse'} ${props.danger && 'button--danger'}`}
-        href={props.href}
-      >
-        {props.children}
-      </a>
-    );
-  }
-  if (props.to) {
-    return (
-      <Link
-        to={props.to}
-        exact={props.exact}
-        className={`button button--${props.size || 'default'} ${props.inverse &&
-          'button--inverse'} ${props.danger && 'button--danger'}`}
-      >
-        {props.children}
-      </Link>
-    );
-  }
-  return (
-    <button
-      className={`button button--${props.size || 'default'} ${props.inverse &&
-        'button--inverse'} ${props.danger && 'button--danger'}`}
-      type={props.type}
-      onClick={props.onClick}
-      disabled={props.disabled}
-    >
-      {props.children}
-    </button>
-  );
-};
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-export default Button;
+.form-control input,
+.form-control textarea {
+  width: 100%;
+  font: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 0.15rem 0.25rem;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline: none;
+  background: #ebebeb;
+  border-color: #510077;
+}
+
+.form-control--invalid label,
+.form-control--invalid p {
+  color: red;
+}
+
+.form-control--invalid input,
+.form-control--invalid textarea {
+  border-color: red;
+  background: #ffd1d1;
+}
